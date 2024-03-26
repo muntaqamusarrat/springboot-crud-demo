@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1>Products</h1>
+    <a href="/products/create" class="btn btn-blue">Create Products</a>
+
+    <table class="table w-full">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Brand</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Image</th>
+            <th>Created At</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product : ${products}">
+            <td th:text="${product.id}"></td>
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.brand}"></td>
+            <td th:text="${product.category}"></td>
+            <td th:text="${product.price}"></td>
+            <td>
+                <img th:src="@{'/images/' + ${product.imageFileName}}" alt="..." width="100">
+            </td>
+            <td th:text="${product.createdAt.toString().substring(0, 10)}"></td>
+            <td style="white-space: nowrap">
+                <a class="btn btn-blue" th:href="@{/products/edit(id=${product.id})}">Edit</a>
+                <a class="btn" th:href="@{/products/delete(id=${product.id})}" onclick="return confirm('Are you sure?')">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
