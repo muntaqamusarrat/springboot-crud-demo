@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 import org.springframework.web.multipart.MultipartFile;
 
+
 public class ProductDto {
     @NotEmpty(message= "The name is required")
     private String name;
@@ -13,7 +14,7 @@ public class ProductDto {
     private String brand;
 
     @NotEmpty(message= "The name is required")
-    private String category;
+    private Category category;
     @Min(0)
     private double price;
 
@@ -39,11 +40,11 @@ public class ProductDto {
         this.brand = brand;
     }
 
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 

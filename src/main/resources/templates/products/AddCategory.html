@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-span-6 mx-auto rounded border p-4 m-4">
+            <h2 class="text-center mb-5">Add New Category</h2>
+
+            <form method="post" enctype="multipart/form-data" th:object="${category}">
+                <div class="row mb-3">
+                    <label class="sm:col-span-4 col-form-label">Category</label>
+                    <div class="col-span-8">
+                        <input type="text" class="form-control" th:field="${category.name}">
+                        <button type="submit">Add Category</button>
+                        <a class="btn btn-outline-primary" href="/products" role="button">Back</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+

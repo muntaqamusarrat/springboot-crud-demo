@@ -11,10 +11,11 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
     private String name;
     private String brand;
-    private String category;
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
     private double price;
 
     @Column(columnDefinition = "TEXT")
@@ -45,11 +46,15 @@ public class Product {
         this.brand = brand;
     }
 
-    public String getCategory() {
+   // public Category getCategory() {
+    //       return category;
+    //    }
+
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 
